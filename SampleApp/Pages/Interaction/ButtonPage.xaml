@@ -1,0 +1,39 @@
+﻿<Page
+    x:Class="SampleApp.Pages.Interaction.ButtonPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SampleApp.Pages.Interaction"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:interaction="using:Richasy.Controls.UWP.Interaction"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <interaction:ExtraButton x:Name="TestButton"
+                                 Background="{ThemeResource PrimaryColor}"
+                                 Foreground="White"
+                                 PointerOverBackground="{ThemeResource PrimaryColorOver}"
+                                 PointerOverForeground="White"
+                                 PressBackground="{ThemeResource PrimaryColorOver}"
+                                 PressForeground="White" FontSize="30" Padding="25,10,25,14"
+                                 DisabledBackground="{ThemeResource CardBackground}"
+                                 DisabledForeground="{ThemeResource NormalTextColor}"
+                                 CornerRadius="3" Content="普通按钮"/>
+            <interaction:IconButton x:Name="IconButton"
+                                    Background="{ThemeResource SecondaryColor}"
+                                 Foreground="White"
+                                 PointerOverBackground="{ThemeResource SecondaryColorOver}"
+                                 PointerOverForeground="DarkBlue"
+                                 PressBackground="{ThemeResource SecondaryColorOver}"
+                                 PressForeground="Wheat" FontSize="30" Padding="25,10,25,14"
+                                    GutterWidth="15"
+                                 DisabledBackground="{ThemeResource CardBackground}"
+                                 DisabledForeground="{ThemeResource NormalTextColor}"
+                                    Icon="&#xE128;" Text="地球" CornerRadius="4" Margin="10,0,0,0"
+                                    Click="IconButton_Click"/>
+
+        </StackPanel>
+        
+    </Grid>
+</Page>
