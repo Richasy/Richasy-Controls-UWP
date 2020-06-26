@@ -4,10 +4,32 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:SampleApp.Pages.Popups"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:popups="using:Richasy.Controls.UWP.Popups"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:popups="using:Richasy.Controls.UWP.Popups" xmlns:widgets="using:Richasy.Controls.UWP.Widgets"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <Page.Resources>
+        <DataTemplate x:Name="HeaderTemplate">
+            <widgets:CenterPopupHeader Title="搞事情！" Padding="15,10">
+                <widgets:CenterPopupHeader.TitleTextStyle>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="FontSize" Value="20" />
+                        <Setter Property="FontWeight" Value="Bold" />
+                        <Setter Property="Foreground" Value="{ThemeResource PrimaryColor}" />
+                    </Style>
+                </widgets:CenterPopupHeader.TitleTextStyle>
+                <widgets:CenterPopupHeader.CloseButtonStyle>
+                    <Style TargetType="Button">
+                        <Setter Property="Width" Value="40" />
+                        <Setter Property="Height" Value="40" />
+                        <Setter Property="CornerRadius" Value="20" />
+                        <Setter Property="FontFamily" Value="{StaticResource SymbolThemeFontFamily}" />
+                    </Style>
+                </widgets:CenterPopupHeader.CloseButtonStyle>
+                <widgets:CenterPopupHeader.AdditionElement>
+                    <Button Content="附加按钮" Margin="0,0,15,0"/>
+                </widgets:CenterPopupHeader.AdditionElement>
+            </widgets:CenterPopupHeader>
+        </DataTemplate>
     </Page.Resources>
     <Grid>
         <Button HorizontalAlignment="Center" VerticalAlignment="Center" Content="弹出内容"

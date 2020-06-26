@@ -1,5 +1,5 @@
 ﻿using Richasy.Controls.UWP.Popups;
-using SampleApp.Controls;
+using Richasy.Controls.UWP.Widgets;
 using SampleApp.Models.Enum;
 using System;
 using System.Collections.Generic;
@@ -35,7 +35,7 @@ namespace SampleApp.Pages.Popups
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var header = new CenterPopupHeader();
+            var header = HeaderTemplate.LoadContent() as CenterPopupHeader;
             var main = new Grid();
             var rect = new Rectangle() { Width = 300, Height = 300, Fill = new SolidColorBrush(Colors.Gray) };
             main.Children.Add(rect);
