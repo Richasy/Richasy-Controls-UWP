@@ -9,6 +9,7 @@ using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI;
 using Windows.UI.Core;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
@@ -35,8 +36,6 @@ namespace SampleApp
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
-            
-            
         }
 
 
@@ -49,6 +48,10 @@ namespace SampleApp
         {
             Frame rootFrame = Window.Current.Content as Frame;
             var option = new Options();
+            option.DarkButtonHoverColor = Colors.DarkGray;
+            option.DarkButtonPressColor = Colors.Black;
+            option.LightButtonHoverColor = Colors.White;
+            option.LightButtonPressColor = Colors.Wheat;
             option.SettingContainerName = "SampleApp";
             _instance = new Instance(option);
             // Do not repeat app initialization when the Window already has content,
@@ -81,6 +84,7 @@ namespace SampleApp
                 // Ensure the current window is active
                 Window.Current.Activate();
             }
+            _instance.App.SetTitleBarColor(RequestedTheme.ToString());
         }
 
         /// <summary>

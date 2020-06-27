@@ -15,10 +15,10 @@
                                 <ContentPresenter x:Name="LeftPresenter" Content="{TemplateBinding AppPane}"/>
                             </SplitView.Pane>
                             <SplitView.Content>
-                                <Grid>
+                                <Grid Background="{TemplateBinding PageBackground}">
                                     <SplitView x:Name="SubSplitView" PanePlacement="Right" IsPaneOpen="{TemplateBinding IsSubPaneOpen}"
-                           PaneBackground="{TemplateBinding SubPaneBackground}"
-                               OpenPaneLength="{TemplateBinding SubPaneOpenWidth}" CompactPaneLength="{TemplateBinding SubPaneCompactWidth}">
+                                               PaneBackground="{TemplateBinding SubPaneBackground}"
+                                               OpenPaneLength="{TemplateBinding SubPaneOpenWidth}" CompactPaneLength="{TemplateBinding SubPaneCompactWidth}">
                                         <SplitView.Pane>
                                             <ContentPresenter x:Name="RightPresenter" Content="{TemplateBinding SubPane}"/>
                                         </SplitView.Pane>

@@ -120,6 +120,8 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Converter\BoolToBrushConverter.cs" />
+    <Compile Include="Converter\ConverterTools.cs" />
     <Compile Include="Extensions\IndicatorExtension.cs" />
     <Compile Include="Extensions\PressExtension.cs" />
     <Compile Include="Interaction\ExtraButton.cs" />
@@ -133,12 +135,20 @@
     <Compile Include="Layout\AdaptiveGridView\AdaptiveGridView.Properties.cs" />
     <Compile Include="Layout\AdaptiveGridView\AdaptiveGridViewItem.cs" />
     <Compile Include="Layout\AdaptiveGridView\AdaptiveGridViewItem.Properties.cs" />
+    <Compile Include="Layout\MenuListView.xaml.cs">
+      <DependentUpon>MenuListView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Models\Event\AfterBackEventArgs.cs" />
     <Compile Include="Models\Event\BeforeBackEventArgs.cs" />
     <Compile Include="Layout\ThreeStageView\ThreeStageView.Navigate.cs" />
     <Compile Include="Layout\ThreeStageView\ThreeStageView.Properties.cs" />
     <Compile Include="Layout\ThreeStageView\ThreeStageView.cs" />
+    <Compile Include="Models\Event\PaneStateChangedEventArgs.cs" />
+    <Compile Include="Models\Event\StageChangedEventArgs.cs" />
     <Compile Include="Models\Interface\ICenterPopupHeader.cs" />
+    <Compile Include="Models\UI\NavigateItem.cs" />
+    <Compile Include="Models\UI\NotifyPropertyBase.cs" />
+    <Compile Include="Models\UI\RichasyPage.cs" />
     <Compile Include="Popups\CenterPopup.xaml.cs">
       <DependentUpon>CenterPopup.xaml</DependentUpon>
     </Compile>
@@ -183,6 +193,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Layout\MenuListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Layout\ThreeStageView\ThreeStageView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -212,6 +226,7 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

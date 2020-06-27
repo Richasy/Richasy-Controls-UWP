@@ -1,0 +1,12 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SampleApp.Themes" xmlns:converters="using:Microsoft.Toolkit.Uwp.UI.Converters" xmlns:converter="using:Richasy.Controls.UWP.Converter">
+    <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+    <converter:BoolToBrushConverter x:Key="SignBrushConverter" TrueBrush="{ThemeResource PrimaryColor}"
+                                    FalseBrush="Transparent"/>
+    <converter:BoolToBrushConverter x:Key="IconBrushConverter" TrueBrush="{ThemeResource SecondaryColor}"
+                                    FalseBrush="{ThemeResource TipTextColor}"/>
+    <converter:BoolToBrushConverter x:Key="TextBrushConverter" TrueBrush="{ThemeResource ImportantTextColor}"
+                                    FalseBrush="{ThemeResource TipTextColor}"/>
+</ResourceDictionary>

@@ -1,4 +1,5 @@
-﻿using Richasy.Controls.UWP.Popups;
+﻿using Richasy.Controls.UWP.Models.UI;
+using Richasy.Controls.UWP.Popups;
 using SampleApp.Models.Enum;
 using System;
 using System.Collections.Generic;
@@ -23,7 +24,7 @@ namespace SampleApp.Pages.Popups
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class TipPopupPage : Page
+    public sealed partial class TipPopupPage : RichasyPage
     {
         public TipPopupPage()
         {

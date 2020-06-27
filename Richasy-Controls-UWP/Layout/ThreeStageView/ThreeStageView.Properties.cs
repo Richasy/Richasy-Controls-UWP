@@ -1,10 +1,14 @@
-﻿using Windows.UI.Xaml;
+﻿using Richasy.Controls.UWP.Models.Event;
+using System;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Media;
 
 namespace Richasy.Controls.UWP.Layout
 {
     public partial class ThreeStageView
     {
+        public event EventHandler<PaneStateChangedEventArgs> AppPaneStateChanged;
+        public event EventHandler<PaneStateChangedEventArgs> SubPaneStateChanged;
         public object AppPane
         {
             get { return (object)GetValue(AppPaneProperty); }
@@ -44,6 +48,18 @@ namespace Richasy.Controls.UWP.Layout
         // Using a DependencyProperty as the backing store for SubPaneBackground.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty SubPaneBackgroundProperty =
             DependencyProperty.Register("SubPaneBackground", typeof(Brush), typeof(ThreeStageView), new PropertyMetadata(null));
+
+        public Brush PageBackground
+        {
+            get { return (Brush)GetValue(PageBackgroundProperty); }
+            set { SetValue(PageBackgroundProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for PageBackground.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty PageBackgroundProperty =
+            DependencyProperty.Register("PageBackground", typeof(Brush), typeof(ThreeStageView), new PropertyMetadata(null));
+
+
 
         public double AppPaneOpenLength
         {
@@ -93,7 +109,16 @@ namespace Richasy.Controls.UWP.Layout
 
         // Using a DependencyProperty as the backing store for IsAppPaneOpen.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty IsAppPaneOpenProperty =
-            DependencyProperty.Register("IsAppPaneOpen", typeof(bool), typeof(ThreeStageView), new PropertyMetadata(true));
+            DependencyProperty.Register("IsAppPaneOpen", typeof(bool), typeof(ThreeStageView), new PropertyMetadata(true,new PropertyChangedCallback(IsAppPaneOpen_Changed)));
+
+        private static void IsAppPaneOpen_Changed(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if(e.NewValue is bool isopen && e.NewValue != e.OldValue)
+            {
+                var instance = d as ThreeStageView;
+                instance.AppPaneStateChanged?.Invoke(instance, new PaneStateChangedEventArgs(isopen));
+            }
+        }
 
         public bool IsSubPaneOpen
         {
@@ -103,7 +128,15 @@ namespace Richasy.Controls.UWP.Layout
 
         // Using a DependencyProperty as the backing store for IsSubPaneOpen.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty IsSubPaneOpenProperty =
-            DependencyProperty.Register("IsSubPaneOpen", typeof(bool), typeof(ThreeStageView), new PropertyMetadata(false));
+            DependencyProperty.Register("IsSubPaneOpen", typeof(bool), typeof(ThreeStageView), new PropertyMetadata(false,new PropertyChangedCallback(IsSubPaneOpen_Changed)));
+        private static void IsSubPaneOpen_Changed(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (e.NewValue is bool isopen && e.NewValue!=e.OldValue)
+            {
+                var instance = d as ThreeStageView;
+                instance.SubPaneStateChanged?.Invoke(instance, new PaneStateChangedEventArgs(isopen));
+            }
+        }
 
         public double ExpendStateBreakpoint
         {

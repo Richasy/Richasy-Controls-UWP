@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Richasy.Controls.UWP.Models.Event;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.Foundation;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -28,37 +30,77 @@ namespace Richasy.Controls.UWP.Layout
         private const string SubSplitViewName = "SubSplitView";
         private const string CompactStateName = "Compact";
         private const string DefaultStateName = "Default";
-        private const string ExpendStateName = "Extend";
+        private const string ExpandStateName = "Expand";
+
+        public event EventHandler<StageChangedEventArgs> StageChanged;
+
         public ThreeStageView()
         {
             this.DefaultStyleKey = typeof(ThreeStageView);
             this.SizeChanged += ThreeStageView_SizeChanged;
             SystemNavigationManager.GetForCurrentView().BackRequested += OnBackrequested;
         }
-
-        private void ThreeStageView_SizeChanged(object sender, SizeChangedEventArgs e)
-        {
-            double width = e.NewSize.Width;
-            if (width <= CompactStateBreakpoint)
-            {
-                VisualStateManager.GoToState(this, CompactStateName, false);
-            }
-            else if (width < ExpendStateBreakpoint)
-            {
-                VisualStateManager.GoToState(this, DefaultStateName, false);
-            }
-            else
-            {
-                VisualStateManager.GoToState(this, ExpendStateName, false);
-            }
-        }
-
         protected override void OnApplyTemplate()
         {
             NavigateFrame = GetTemplateChild(NavigateFrameName) as Frame;
             AppSplitView = GetTemplateChild(AppSplitViewName) as SplitView;
             SubSplitView = GetTemplateChild(SubSplitViewName) as SplitView;
+            AppSplitView.PaneClosed += AppSplitView_PaneClosed;
+            AppSplitView.PaneOpened += AppSplitView_PaneOpened;
+            SubSplitView.PaneClosed += SubSplitView_PaneClosed;
+            SubSplitView.PaneOpened += SubSplitView_PaneOpened;
             base.OnApplyTemplate();
+        }
+
+        private void SubSplitView_PaneOpened(SplitView sender, object args)
+        {
+            if (!IsSubPaneOpen)
+                IsSubPaneOpen = true;
+        }
+
+        private void SubSplitView_PaneClosed(SplitView sender, object args)
+        {
+            if (IsSubPaneOpen)
+                IsSubPaneOpen = false;
+        }
+
+        private void AppSplitView_PaneOpened(SplitView sender, object args)
+        {
+            if (!IsAppPaneOpen)
+                IsAppPaneOpen = true;
+        }
+
+        private void AppSplitView_PaneClosed(SplitView sender, object args)
+        {
+            if (IsAppPaneOpen)
+                IsAppPaneOpen = false;
+        }
+
+        private void ThreeStageView_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            string prevName = GetCurrentStateName(e.PreviousSize);
+            string currentName = GetCurrentStateName(e.NewSize);
+            VisualStateManager.GoToState(this, currentName, false);
+            if (prevName != currentName)
+            {
+                var args = new StageChangedEventArgs();
+                args.CurrentSize = e.NewSize;
+                args.StageName = currentName;
+                StageChanged?.Invoke(this, args);
+            }
+        }
+
+        private string GetCurrentStateName(Size size)
+        {
+            double width = size.Width;
+            string name = "";
+            if (width <= CompactStateBreakpoint)
+                name = CompactStateName;
+            else if (width < ExpendStateBreakpoint)
+                name = DefaultStateName;
+            else
+                name = ExpandStateName;
+            return name;
         }
     }
 }

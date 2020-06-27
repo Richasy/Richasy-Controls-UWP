@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using Richasy.Controls.UWP.Models.UI;
+using Richasy.Font.UWP.Enums;
+using SampleApp.Models.UI;
+using System;
+using System.Collections.ObjectModel;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
+using Windows.UI.Xaml.Media.Animation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -20,32 +14,69 @@ namespace SampleApp
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class MainPage : Page
+    public sealed partial class MainPage : RichasyPage
     {
-        public MainPage()
+        private ObservableCollection<MenuItem> MenuItemCollection = new ObservableCollection<MenuItem>();
+        public MainPage(): base()
         {
             this.InitializeComponent();
+            var items = MenuItem.GetMenuItems();
+            items.ForEach(p => MenuItemCollection.Add(p));
+            IsInit = true;
         }
 
-        private void NavigationView_ItemInvoked(NavigationView sender, NavigationViewItemInvokedEventArgs args)
+        private void MyView_BeforeBack(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            var item = args.InvokedItemContainer.Tag.ToString();
+        }
+
+        private void MyView_AfterBack(object sender, Richasy.Controls.UWP.Models.Event.AfterBackEventArgs e)
+        {
+
+        }
+
+        private void MenuListView_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            
+        }
+
+        private void Page_Loaded(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            MenuListView.SelectedItem = MenuItemCollection.First();
+            ExpandIcon.Symbol = MyView.IsAppPaneOpen ? FeatherSymbol.ChevronsLeft : FeatherSymbol.ChevronsRight;
+        }
+
+        private void MyView_AppPaneStateChanged(object sender, Richasy.Controls.UWP.Models.Event.PaneStateChangedEventArgs e)
+        {
+            ExpandIcon.Symbol = e.IsOpen ? FeatherSymbol.ChevronsLeft : FeatherSymbol.ChevronsRight;
+        }
+
+        private void ExpandButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            MyView.IsAppPaneOpen = !MyView.IsAppPaneOpen;
+        }
+
+        private void MenuListView_SelectedItemChanged(object sender, NavigateItemBase e)
+        {
+            var item = e as MenuItem;
             Type pageType = null;
-            switch (item)
+
+            switch (item.Type)
             {
-                case "TipPopup":
+                case Models.Enum.MenuItemType.TipPopup:
                     pageType = typeof(Pages.Popups.TipPopupPage);
                     break;
-                case "CenterPopup":
+                case Models.Enum.MenuItemType.CenterPopup:
                     pageType = typeof(Pages.Popups.CenterPopupPage);
                     break;
-                case "ExtraButton":
+                case Models.Enum.MenuItemType.ExtendButton:
                     pageType = typeof(Pages.Interaction.ButtonPage);
+                    break;
+                case Models.Enum.MenuItemType.Other:
                     break;
                 default:
                     break;
             }
-            MainFrame.Navigate(pageType);
+            MyView.NavigateToPage(pageType, null, false, new DrillInNavigationTransitionInfo());
         }
     }
 }

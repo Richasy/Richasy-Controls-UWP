@@ -1,12 +1,12 @@
-﻿<Page
+﻿<ui:RichasyPage
+    xmlns:ui="using:Richasy.Controls.UWP.Models.UI"
     x:Class="SampleApp.Pages.Popups.TipPopupPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:SampleApp.Pages.Popups"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    mc:Ignorable="d">
 
     <Grid>
         <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center" Padding="30">
@@ -14,4 +14,4 @@
             <Button Content="弹出元素通知" x:Name="ElementButton" Click="ElementButton_Click"  Margin="15,0,0,0"/>
         </StackPanel>
     </Grid>
-</Page>
+</ui:RichasyPage>

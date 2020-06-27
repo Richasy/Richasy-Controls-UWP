@@ -34,9 +34,11 @@
                 </Grid.RowDefinitions>
                 <animations:Implicit.ShowAnimations>
                     <animations:TranslationAnimation Duration="0:0:0.5" From="0, 50, 0" To="0" />
+                    <animations:OpacityAnimation Duration="0:0:0.5" From="0" To="1.0"/>
                 </animations:Implicit.ShowAnimations>
                 <animations:Implicit.HideAnimations>
                     <animations:TranslationAnimation Duration="0:0:0.5" From="0" To="0,50,0" />
+                    <animations:OpacityAnimation Duration="0:0:0.5" From="1.0" To="0"/>
                 </animations:Implicit.HideAnimations>
                 <ContentPresenter x:Name="HeaderPresenter" Content="{x:Bind Header,Mode=OneWay}"/>
                 <ContentPresenter x:Name="MainPresenter" Content="{x:Bind Main,Mode=OneWay}" Grid.Row="1"/>

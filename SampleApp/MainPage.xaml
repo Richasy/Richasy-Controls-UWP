@@ -1,24 +1,64 @@
-﻿<Page
+﻿<ui1:RichasyPage
+    xmlns:ui1="using:Richasy.Controls.UWP.Models.UI"
     x:Class="SampleApp.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:SampleApp"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:layout="using:Richasy.Controls.UWP.Layout" 
+    xmlns:font="using:Richasy.Font.UWP" xmlns:ui="using:SampleApp.Models.UI" xmlns:converter="using:Richasy.Controls.UWP.Converter"
+    xmlns:ext="using:Richasy.Controls.UWP.Extensions"
+    mc:Ignorable="d" Loaded="Page_Loaded">
+    <Page.Resources>
+        <DataTemplate x:DataType="ui:MenuItem" x:Key="MenuItemTemplate">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="4"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Rectangle x:Name="ItemSign" Fill="{x:Bind IsSelected,Mode=OneWay,Converter={StaticResource SignBrushConverter}}"
+                           Width="4" Height="30"/>
+                <font:FeatherIcon Symbol="{x:Bind Icon}" Grid.Column="1" VerticalAlignment="Center"
+                                  FontSize="15" Margin="15,0,0,0" Foreground="{x:Bind IsSelected,Mode=OneWay,Converter={StaticResource IconBrushConverter}}"/>
+                <TextBlock Text="{x:Bind Name}" FontSize="14" VerticalAlignment="Center" Margin="10,0,0,0" Grid.Column="2"
+                           Foreground="{x:Bind IsSelected,Mode=OneWay,Converter={StaticResource TextBrushConverter}}"/>
+            </Grid>
+        </DataTemplate>
+    </Page.Resources>
     <Grid>
-        <NavigationView ItemInvoked="NavigationView_ItemInvoked"
-                        PaneTitle="测试应用">
-            <NavigationView.MenuItems>
-                <NavigationViewItem Content="提示弹出层" Tag="TipPopup"/>
-                <NavigationViewItem Content="居中弹出层" Tag="CenterPopup"/>
-                <NavigationViewItem Content="扩展按钮" Tag="ExtraButton"/>
-            </NavigationView.MenuItems>
-            <NavigationView.Content>
-                <Frame x:Name="MainFrame"/>
-            </NavigationView.Content>
-        </NavigationView>
+        <layout:ThreeStageView x:Name="MyView" BeforeBack="MyView_BeforeBack"
+                               AfterBack="MyView_AfterBack"
+                               AppPaneBackground="{ThemeResource SideBackground}"
+                               SubPaneBackground="{ThemeResource PaneBackground}"
+                               IsAppPaneOpen="True" AppPaneStateChanged="MyView_AppPaneStateChanged"
+                               PageBackground="{ThemeResource PageBackground}">
+            <layout:ThreeStageView.AppPane>
+                <Grid Padding="0,20,0,15">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Margin="15,0,15,20" Text="应用测试" FontSize="25" FontWeight="Bold" HorizontalAlignment="Left"/>
+                    <layout:MenuListView x:Name="MenuListView"
+                              ItemTemplate="{StaticResource MenuItemTemplate}"
+                              Grid.Row="1"
+                              SignName="ItemSign"
+                              ItemsSource="{x:Bind MenuItemCollection}"
+                              SelectedItemChanged="MenuListView_SelectedItemChanged">
+                        <layout:MenuListView.ListViewStyle>
+                            <Style TargetType="ListView">
+                                <Setter Property="ItemContainerStyle" Value="{StaticResource SideMenuListViewItemContainerStyle}"/>
+                            </Style>
+                        </layout:MenuListView.ListViewStyle>
+                    </layout:MenuListView>
+                    <Button Width="40" Height="40" Grid.Row="2" Margin="15,0,0,0" HorizontalAlignment="Left" x:Name="ExpandButton"
+                            Click="ExpandButton_Click" CornerRadius="20">
+                        <font:FeatherIcon x:Name="ExpandIcon"/>
+                    </Button>
+                </Grid>
+            </layout:ThreeStageView.AppPane>
+        </layout:ThreeStageView>
     </Grid>
-</Page>
+</ui1:RichasyPage>

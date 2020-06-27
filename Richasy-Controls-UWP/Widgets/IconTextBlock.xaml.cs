@@ -61,7 +61,7 @@ namespace Richasy.Controls.UWP.Widgets
 
         // Using a DependencyProperty as the backing store for IconForeground.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty IconForegroundProperty =
-            DependencyProperty.Register("IconForeground", typeof(Brush), typeof(IconTextBlock), new PropertyMetadata(UIHelper.GetThemeBrush(Models.Enums.ColorType.TipTextColor)));
+            DependencyProperty.Register("IconForeground", typeof(Brush), typeof(IconTextBlock), new PropertyMetadata(null));
 
         public Brush TextForeground
         {
@@ -71,7 +71,7 @@ namespace Richasy.Controls.UWP.Widgets
 
         // Using a DependencyProperty as the backing store for TextForeground.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty TextForegroundProperty =
-            DependencyProperty.Register("TextForeground", typeof(Brush), typeof(IconTextBlock), new PropertyMetadata(UIHelper.GetThemeBrush(Models.Enums.ColorType.NormalTextColor)));
+            DependencyProperty.Register("TextForeground", typeof(Brush), typeof(IconTextBlock), new PropertyMetadata(null));
 
         public double IconFontSize
         {
@@ -81,7 +81,7 @@ namespace Richasy.Controls.UWP.Widgets
 
         // Using a DependencyProperty as the backing store for IconFontSize.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty IconFontSizeProperty =
-            DependencyProperty.Register("IconFontSize", typeof(double), typeof(IconTextBlock), new PropertyMetadata(App.AppViewModel.BasicFontSize * 0.85));
+            DependencyProperty.Register("IconFontSize", typeof(double), typeof(IconTextBlock), new PropertyMetadata(14.0));
 
         public bool IsTextSelectionEnabled
         {
