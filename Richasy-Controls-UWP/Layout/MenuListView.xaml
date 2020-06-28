@@ -13,7 +13,7 @@
         <ListView x:Name="MenuView"
                   IsItemClickEnabled="True"
                   ItemClick="MenuView_ItemClick"
-                  ItemTemplate="{x:Bind ItemTemplate,Mode=OneWay}"
+                  ItemTemplate="{x:Bind ItemWideTemplate,Mode=OneWay}"
                   ItemsSource="{x:Bind ItemsSource,Mode=OneWay}"
                   Style="{x:Bind ListViewStyle,Mode=OneWay}"
                   />

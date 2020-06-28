@@ -65,15 +65,28 @@ namespace Richasy.Controls.UWP.Layout
         public static readonly DependencyProperty ItemsSourceProperty =
             DependencyProperty.Register("ItemsSource", typeof(ICollection), typeof(MenuListView), new PropertyMetadata(null));
 
-        public DataTemplate ItemTemplate
+        public DataTemplate ItemWideTemplate
         {
-            get { return (DataTemplate)GetValue(ItemTemplateProperty); }
-            set { SetValue(ItemTemplateProperty, value); }
+            get { return (DataTemplate)GetValue(ItemWideTemplateProperty); }
+            set { SetValue(ItemWideTemplateProperty, value); }
         }
 
         // Using a DependencyProperty as the backing store for ItemTemplate.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty ItemTemplateProperty =
-            DependencyProperty.Register("ItemTemplate", typeof(DataTemplate), typeof(MenuListView), new PropertyMetadata(null));
+        public static readonly DependencyProperty ItemWideTemplateProperty =
+            DependencyProperty.Register("ItemWideTemplate", typeof(DataTemplate), typeof(MenuListView), new PropertyMetadata(null));
+
+
+        public DataTemplate ItemNarrowTemplate
+        {
+            get { return (DataTemplate)GetValue(ItemNarrowTemplateProperty); }
+            set { SetValue(ItemNarrowTemplateProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for ItemNarrowTemplate.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty ItemNarrowTemplateProperty =
+            DependencyProperty.Register("ItemNarrowTemplate", typeof(DataTemplate), typeof(MenuListView), new PropertyMetadata(null));
+
+
 
         public Style ListViewStyle
         {
@@ -103,6 +116,25 @@ namespace Richasy.Controls.UWP.Layout
                 var view = instance.MenuView;
                 IndicatorExtension.SetName(view, signName);
                 IndicatorExtension.SetIsScaleEnabled(view, true);
+            }
+        }
+
+        public bool IsNarrow
+        {
+            get { return (bool)GetValue(IsNarrowProperty); }
+            set { SetValue(IsNarrowProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for IsNarrow.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty IsNarrowProperty =
+            DependencyProperty.Register("IsNarrow", typeof(bool), typeof(MenuListView), new PropertyMetadata(false,new PropertyChangedCallback(IsNarrow_Changed)));
+
+        private static void IsNarrow_Changed(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if(e.NewValue is bool isNarrow)
+            {
+                var instance = d as MenuListView;
+                instance.MenuView.ItemTemplate = isNarrow ? instance.ItemNarrowTemplate : instance.ItemWideTemplate;
             }
         }
     }

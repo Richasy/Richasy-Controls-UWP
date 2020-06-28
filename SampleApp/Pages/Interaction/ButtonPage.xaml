@@ -5,7 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:SampleApp.Pages.Interaction"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:interaction="using:Richasy.Controls.UWP.Interaction"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:interaction="using:Richasy.Controls.UWP.Interaction" xmlns:uwp="using:Richasy.Font.UWP"
     mc:Ignorable="d">
 
     <Grid>
@@ -30,9 +30,21 @@
                                     GutterWidth="15"
                                  DisabledBackground="{ThemeResource CardBackground}"
                                  DisabledForeground="{ThemeResource NormalTextColor}"
-                                    Icon="&#xE128;" Text="地球" CornerRadius="4" Margin="10,0,0,0"
+                                    Icon="&#xE128;" Text="地球" CornerRadius="4" Margin="20,0,0,0"
                                     Click="IconButton_Click"/>
-
+            <interaction:ActionButton x:Name="ActionButton"
+                                         Background="{ThemeResource SuccessColorOpacity}"
+                                         Foreground="{ThemeResource SuccessColorOver}"
+                                         PointerOverBackground="{ThemeResource SuccessColor}"
+                                      PointerOverForeground="White" Margin="20,0,0,0"
+                                      PressBackground="{ThemeResource SuccessColorOver}"
+                                      PressForeground="White"
+                                      BorderThickness="0" FontSize="50" VerticalAlignment="Center"
+                                      Diameter="60" Click="ActionButton_Click">
+                <interaction:ActionButton.Icon>
+                    <uwp:FeatherIcon Symbol="Github"/>
+                </interaction:ActionButton.Icon>
+            </interaction:ActionButton>
         </StackPanel>
         
     </Grid>

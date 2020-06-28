@@ -71,6 +71,9 @@ namespace SampleApp
                 case Models.Enum.MenuItemType.ExtendButton:
                     pageType = typeof(Pages.Interaction.ButtonPage);
                     break;
+                case Models.Enum.MenuItemType.ExtendInput:
+                    pageType = typeof(Pages.Interaction.InputPage);
+                    break;
                 case Models.Enum.MenuItemType.Other:
                     break;
                 default:

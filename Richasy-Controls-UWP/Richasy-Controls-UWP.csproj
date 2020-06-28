@@ -124,7 +124,9 @@
     <Compile Include="Converter\ConverterTools.cs" />
     <Compile Include="Extensions\IndicatorExtension.cs" />
     <Compile Include="Extensions\PressExtension.cs" />
+    <Compile Include="Interaction\ActionButton.cs" />
     <Compile Include="Interaction\ExtraButton.cs" />
+    <Compile Include="Interaction\ExtraTextBox.cs" />
     <Compile Include="Interaction\IconButton.xaml.cs">
       <DependentUpon>IconButton.xaml</DependentUpon>
     </Compile>
@@ -145,7 +147,9 @@
     <Compile Include="Layout\ThreeStageView\ThreeStageView.cs" />
     <Compile Include="Models\Event\PaneStateChangedEventArgs.cs" />
     <Compile Include="Models\Event\StageChangedEventArgs.cs" />
+    <Compile Include="Models\Interface\IAppBarComboBoxItem.cs" />
     <Compile Include="Models\Interface\ICenterPopupHeader.cs" />
+    <Compile Include="Models\UI\AppBarComboBoxItem.cs" />
     <Compile Include="Models\UI\NavigateItem.cs" />
     <Compile Include="Models\UI\NotifyPropertyBase.cs" />
     <Compile Include="Models\UI\RichasyPage.cs" />
@@ -156,6 +160,9 @@
       <DependentUpon>TipPopup.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Widgets\AppBarComboBoxButton.xaml.cs">
+      <DependentUpon>AppBarComboBoxButton.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Widgets\Bubble\Bubble.cs" />
     <Compile Include="Widgets\Bubble\BubbleView.cs" />
     <Compile Include="Widgets\CenterPopupHeader.xaml.cs">
@@ -210,6 +217,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Widgets\AppBarComboBoxButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

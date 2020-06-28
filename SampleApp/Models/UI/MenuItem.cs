@@ -34,6 +34,10 @@ namespace SampleApp.Models.UI
                     Name = "扩展按钮";
                     Icon = FeatherSymbol.MousePointer;
                     break;
+                case MenuItemType.ExtendInput:
+                    Name = "扩展文本框";
+                    Icon = FeatherSymbol.PenTool;
+                    break;
                 case MenuItemType.Other:
                     Name = "其它";
                     Icon = FeatherSymbol.Share;
@@ -50,7 +54,7 @@ namespace SampleApp.Models.UI
                 new MenuItem(MenuItemType.TipPopup,true),
                 new MenuItem(MenuItemType.CenterPopup),
                 new MenuItem(MenuItemType.ExtendButton),
-                new MenuItem(MenuItemType.Other)
+                new MenuItem(MenuItemType.ExtendInput)
             };
         }
     }

@@ -11,6 +11,7 @@ namespace SampleApp.Models.Enum
         TipPopup,
         CenterPopup,
         ExtendButton,
+        ExtendInput,
         Other
     }
 }

@@ -1,10 +1,9 @@
-﻿using Richasy.Controls.UWP.Extensions;
+﻿using Richasy.Controls.UWP.Models.UI;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
-using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -22,25 +21,11 @@ namespace SampleApp.Pages.Interaction
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class ButtonPage : Richasy.Controls.UWP.Models.UI.RichasyPage
+    public sealed partial class InputPage : RichasyPage
     {
-        public ButtonPage()
+        public InputPage()
         {
             this.InitializeComponent();
-        }
-
-        private async void IconButton_Click(object sender, RoutedEventArgs e)
-        {
-            IconButton.IsLoading = true;
-            await Task.Delay(2000);
-            IconButton.IsLoading = false;
-        }
-
-        private async void ActionButton_Click(object sender, RoutedEventArgs e)
-        {
-            ActionButton.IsLoading = true;
-            await Task.Delay(2000);
-            ActionButton.IsLoading = false;
         }
     }
 }

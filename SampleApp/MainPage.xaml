@@ -7,10 +7,10 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:layout="using:Richasy.Controls.UWP.Layout" 
     xmlns:font="using:Richasy.Font.UWP" xmlns:ui="using:SampleApp.Models.UI" xmlns:converter="using:Richasy.Controls.UWP.Converter"
-    xmlns:ext="using:Richasy.Controls.UWP.Extensions"
+    xmlns:ext="using:Richasy.Controls.UWP.Extensions" xmlns:interaction="using:Richasy.Controls.UWP.Interaction"
     mc:Ignorable="d" Loaded="Page_Loaded">
     <Page.Resources>
-        <DataTemplate x:DataType="ui:MenuItem" x:Key="MenuItemTemplate">
+        <DataTemplate x:DataType="ui:MenuItem" x:Key="MenuWideItemTemplate">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="4"/>
@@ -23,6 +23,18 @@
                                   FontSize="15" Margin="15,0,0,0" Foreground="{x:Bind IsSelected,Mode=OneWay,Converter={StaticResource IconBrushConverter}}"/>
                 <TextBlock Text="{x:Bind Name}" FontSize="14" VerticalAlignment="Center" Margin="10,0,0,0" Grid.Column="2"
                            Foreground="{x:Bind IsSelected,Mode=OneWay,Converter={StaticResource TextBrushConverter}}"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:DataType="ui:MenuItem" x:Key="MenuNarrowItemTemplate">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="4"/>
+                    <ColumnDefinition Width="76"/>
+                </Grid.ColumnDefinitions>
+                <Rectangle x:Name="ItemSign" Fill="{x:Bind IsSelected,Mode=OneWay,Converter={StaticResource SignBrushConverter}}"
+                           Width="4" Height="30"/>
+                <font:FeatherIcon Symbol="{x:Bind Icon}" Grid.Column="1" VerticalAlignment="Center" ToolTipService.ToolTip="{x:Bind Name}"
+                                  FontSize="15" HorizontalAlignment="Center" Foreground="{x:Bind IsSelected,Mode=OneWay,Converter={StaticResource IconBrushConverter}}"/>
             </Grid>
         </DataTemplate>
     </Page.Resources>
@@ -40,9 +52,11 @@
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
-                    <TextBlock Margin="15,0,15,20" Text="应用测试" FontSize="25" FontWeight="Bold" HorizontalAlignment="Left"/>
+                    <TextBlock Margin="15,0,15,20" Text="应用测试" x:Name="TestBlock" FontSize="25" FontWeight="Bold" HorizontalAlignment="Left"/>
                     <layout:MenuListView x:Name="MenuListView"
-                              ItemTemplate="{StaticResource MenuItemTemplate}"
+                              ItemWideTemplate="{StaticResource MenuWideItemTemplate}"
+                                         ItemNarrowTemplate="{StaticResource MenuNarrowItemTemplate}"
+                                         IsNarrow="{x:Bind MyView.IsAppPaneOpen.Equals(x:False),Mode=OneWay}"
                               Grid.Row="1"
                               SignName="ItemSign"
                               ItemsSource="{x:Bind MenuItemCollection}"
@@ -53,10 +67,15 @@
                             </Style>
                         </layout:MenuListView.ListViewStyle>
                     </layout:MenuListView>
-                    <Button Width="40" Height="40" Grid.Row="2" Margin="15,0,0,0" HorizontalAlignment="Left" x:Name="ExpandButton"
-                            Click="ExpandButton_Click" CornerRadius="20">
-                        <font:FeatherIcon x:Name="ExpandIcon"/>
-                    </Button>
+                    <interaction:ActionButton Diameter="40" Grid.Row="2" Margin="15,0,0,0" HorizontalAlignment="Left" x:Name="ExpandButton"
+                            Click="ExpandButton_Click" Background="{ThemeResource PrimaryColorOpacity}" Foreground="{ThemeResource PrimaryColorOver}"
+                                              PointerOverBackground="{ThemeResource PrimaryColor}" PointerOverForeground="White"
+                                              PressBackground="{ThemeResource PrimaryColorOver}" PressForeground="White"
+                                              BorderThickness="0">
+                        <interaction:ActionButton.Icon>
+                            <font:FeatherIcon x:Name="ExpandIcon"/>
+                        </interaction:ActionButton.Icon>
+                    </interaction:ActionButton>
                 </Grid>
             </layout:ThreeStageView.AppPane>
         </layout:ThreeStageView>
