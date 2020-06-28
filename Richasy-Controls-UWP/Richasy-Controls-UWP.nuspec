@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package >
   <metadata>
-    <id>$id$</id>
-    <version>$version$</version>
-    <title>$title$</title>
-    <authors>$author$</authors>
-    <owners>$author$</owners>
+    <id>Richasy.Controls.UWP</id>
+    <version>1.0.0</version>
+    <authors>Richasy</authors>
+    <owners>Richasy</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <license type="expression">MIT</license>
-    <projectUrl>http://project_url_here_or_delete_this_line/</projectUrl>
-    <iconUrl>http://icon_url_here_or_delete_this_line/</iconUrl>
-    <description>$description$</description>
-    <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
+    <projectUrl>https://github.com/Richasy/Richasy-Controls-UWP</projectUrl>
+    <iconUrl>https://i.loli.net/2020/06/28/7M368G1hUoYXJpC.png</iconUrl>
+    <description>Richasy自用的控件集，多是对原有控件的包装</description>
+    <releaseNotes>基础构建</releaseNotes>
     <copyright>Copyright 2020</copyright>
-    <tags>Tag1 Tag2</tags>
+    <tags>Richasy uwp controls</tags>
   </metadata>
 </package>
