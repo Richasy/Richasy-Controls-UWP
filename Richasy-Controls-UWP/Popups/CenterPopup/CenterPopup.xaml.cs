@@ -241,8 +241,8 @@ namespace Richasy.Controls.UWP.Popups
         public static CenterPopup CreatePopup(Instance instance, ICenterPopupHeader header, object main, Enum popupBackground, Enum presenterBackground, double maxWidth, double maxHeight, double width = double.NaN, double height = double.NaN, Action<Size> SizeChangedHandle = null)
         {
             var popup = CreatePopup(instance, header, main, SizeChangedHandle);
-            popup.PopupBackground = instance.App.GetThemeBrush(popupBackground);
-            popup.PresenterBackground = instance.App.GetThemeBrush(presenterBackground);
+            popup.PopupBackground = instance.App.GetThemeBrushFromResource(popupBackground);
+            popup.PresenterBackground = instance.App.GetThemeBrushFromResource(presenterBackground);
             popup.PopupMaxWidth = maxWidth;
             popup.PopupMaxHeight = maxHeight;
             popup.PopupWidth = width;

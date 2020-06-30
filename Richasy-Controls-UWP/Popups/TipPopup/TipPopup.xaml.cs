@@ -115,7 +115,7 @@ namespace Richasy.Controls.UWP.Popups
                 Width = size.Width;
                 Height = size.Height;
             });
-            PopupBackground = _instance.App.GetThemeBrush(colorType);
+            PopupBackground = _instance.App.GetThemeBrushFromResource(colorType);
             _popup.IsOpen = true;
             PopupContainer.Visibility = Visibility.Visible;
             await Task.Delay(TimeSpan.FromSeconds(staySeconds));
