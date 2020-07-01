@@ -201,10 +201,10 @@
       <Version>6.2.10</Version>
     </PackageReference>
     <PackageReference Include="Richasy.Font.UWP">
-      <Version>1.0.2</Version>
+      <Version>1.0.5</Version>
     </PackageReference>
     <PackageReference Include="Richasy.Helper.UWP">
-      <Version>1.0.1</Version>
+      <Version>1.0.4</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>

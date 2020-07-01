@@ -9,10 +9,6 @@
     d:DesignHeight="300"
     d:DesignWidth="400">
     <local:ExtraButton.Resources>
-        <Style TargetType="TextBlock" x:Name="DefaultIconStyle">
-            <Setter Property="LineHeight" Value="0" />
-            <Setter Property="FontFamily" Value="Segoe MDL2 Assets" />
-        </Style>
         <Style TargetType="TextBlock" x:Name="DefaultTextStyle">
             <Setter Property="TextWrapping" Value="NoWrap" />
             <Setter Property="TextTrimming" Value="CharacterEllipsis" />
@@ -24,8 +20,8 @@
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="1*" />
         </Grid.ColumnDefinitions>
-        <TextBlock FontSize="{x:Bind FontSize,Mode=OneWay}" VerticalAlignment="Center" Text="{x:Bind Icon,Mode=OneWay}"
-                   Style="{StaticResource DefaultIconStyle}" Margin="0,0,6,0" Visibility="Collapsed" x:Name="IconBlock"/>
+        <ContentPresenter FontSize="{x:Bind FontSize,Mode=OneWay}" VerticalAlignment="Center" Content="{x:Bind Icon,Mode=OneWay}"
+                   Margin="0,0,6,0" Visibility="Collapsed" x:Name="IconBlock"/>
         <ProgressRing x:Name="LoadingRing" Width="{x:Bind FontSize,Mode=OneWay}" Height="{x:Bind FontSize,Mode=OneWay}" Style="{x:Bind ProgressRingStyle,Mode=OneWay}" Foreground="{x:Bind Foreground,Mode=OneWay}"
                       VerticalAlignment="Center" MinWidth="{x:Bind FontSize,Mode=OneWay}" MinHeight="{x:Bind FontSize,Mode=OneWay}" Margin="0,0,6,0" Visibility="Collapsed" IsActive="{x:Bind IsLoading,Mode=OneWay}"/>
         <TextBlock Grid.Column="1" x:Name="NameTextBlock" Style="{StaticResource DefaultTextStyle}"

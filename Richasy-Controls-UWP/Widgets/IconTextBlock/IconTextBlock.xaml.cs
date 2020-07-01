@@ -23,15 +23,19 @@ namespace Richasy.Controls.UWP.Widgets
         {
             this.InitializeComponent();
         }
-        public string Icon
+
+
+        public IconElement Icon
         {
-            get { return (string)GetValue(IconProperty); }
+            get { return (IconElement)GetValue(IconProperty); }
             set { SetValue(IconProperty, value); }
         }
 
         // Using a DependencyProperty as the backing store for Icon.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty IconProperty =
-            DependencyProperty.Register("Icon", typeof(string), typeof(IconTextBlock), new PropertyMetadata(""));
+            DependencyProperty.Register("Icon", typeof(IconElement), typeof(IconTextBlock), new PropertyMetadata(null));
+
+
 
         public GridLength GutterWidth
         {
@@ -53,36 +57,6 @@ namespace Richasy.Controls.UWP.Widgets
         public static readonly DependencyProperty TextProperty =
             DependencyProperty.Register("Text", typeof(string), typeof(IconTextBlock), new PropertyMetadata(""));
 
-        public Brush IconForeground
-        {
-            get { return (Brush)GetValue(IconForegroundProperty); }
-            set { SetValue(IconForegroundProperty, value); }
-        }
-
-        // Using a DependencyProperty as the backing store for IconForeground.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty IconForegroundProperty =
-            DependencyProperty.Register("IconForeground", typeof(Brush), typeof(IconTextBlock), new PropertyMetadata(null));
-
-        public Brush TextForeground
-        {
-            get { return (Brush)GetValue(TextForegroundProperty); }
-            set { SetValue(TextForegroundProperty, value); }
-        }
-
-        // Using a DependencyProperty as the backing store for TextForeground.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty TextForegroundProperty =
-            DependencyProperty.Register("TextForeground", typeof(Brush), typeof(IconTextBlock), new PropertyMetadata(null));
-
-        public double IconFontSize
-        {
-            get { return (double)GetValue(IconFontSizeProperty); }
-            set { SetValue(IconFontSizeProperty, value); }
-        }
-
-        // Using a DependencyProperty as the backing store for IconFontSize.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty IconFontSizeProperty =
-            DependencyProperty.Register("IconFontSize", typeof(double), typeof(IconTextBlock), new PropertyMetadata(14.0));
-
         public bool IsTextSelectionEnabled
         {
             get { return (bool)GetValue(IsTextSelectionEnabledProperty); }
@@ -92,17 +66,6 @@ namespace Richasy.Controls.UWP.Widgets
         // Using a DependencyProperty as the backing store for IsTextSelectionEnable.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty IsTextSelectionEnabledProperty =
             DependencyProperty.Register("IsTextSelectionEnabled", typeof(bool), typeof(IconTextBlock), new PropertyMetadata(false));
-
-        public FontFamily IconFontFamily
-        {
-            get { return (FontFamily)GetValue(IconFontFamilyProperty); }
-            set { SetValue(IconFontFamilyProperty, value); }
-        }
-
-        // Using a DependencyProperty as the backing store for IconFontFamily.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty IconFontFamilyProperty =
-            DependencyProperty.Register("IconFontFamily", typeof(FontFamily), typeof(IconTextBlock), new PropertyMetadata(new FontFamily("Segoe MDL2 Assets")));
-
 
     }
 }

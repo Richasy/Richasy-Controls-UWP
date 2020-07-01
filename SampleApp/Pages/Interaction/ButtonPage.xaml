@@ -30,8 +30,12 @@
                                     GutterWidth="15"
                                  DisabledBackground="{ThemeResource CardBackground}"
                                  DisabledForeground="{ThemeResource NormalTextColor}"
-                                    Icon="&#xE128;" Text="地球" CornerRadius="4" Margin="20,0,0,0"
-                                    Click="IconButton_Click"/>
+                                  Text="地球" CornerRadius="4" Margin="20,0,0,0"
+                                    Click="IconButton_Click">
+                <interaction:IconButton.Icon>
+                    <uwp:FeatherIcon Symbol="Feather"/>
+                </interaction:IconButton.Icon>
+            </interaction:IconButton>
             <interaction:ActionButton x:Name="ActionButton"
                                          Background="{ThemeResource SuccessColorOpacity}"
                                          Foreground="{ThemeResource SuccessColorOver}"

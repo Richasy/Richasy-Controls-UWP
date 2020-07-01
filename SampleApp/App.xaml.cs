@@ -36,6 +36,7 @@ namespace SampleApp
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+            this.RequestedTheme = ApplicationTheme.Dark;
         }
 
 

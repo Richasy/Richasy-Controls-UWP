@@ -24,19 +24,23 @@ namespace Richasy.Controls.UWP.Interaction
             this.InitializeComponent();
         }
 
-        public string Icon
+
+
+        public IconElement Icon
         {
-            get { return (string)GetValue(IconProperty); }
+            get { return (IconElement)GetValue(IconProperty); }
             set { SetValue(IconProperty, value); }
         }
 
+        // Using a DependencyProperty as the backing store for Icon.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty IconProperty =
-            DependencyProperty.Register("Icon", typeof(string), typeof(IconButton), new PropertyMetadata("", new PropertyChangedCallback(Icon_Changed)));
+            DependencyProperty.Register("Icon", typeof(IconElement), typeof(IconButton), new PropertyMetadata(null,new PropertyChangedCallback(Icon_Changed)));
+
 
         private static void Icon_Changed(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var instance = d as IconButton;
-            if (e.NewValue != null && e.NewValue is string icon)
+            if (e.NewValue != null && e.NewValue is IconElement icon)
             {
                 instance.IconBlock.Visibility = Visibility.Visible;
             }
@@ -83,7 +87,7 @@ namespace Richasy.Controls.UWP.Interaction
                 {
                     instance.IsEnabled = true;
                     instance.LoadingRing.Visibility = Visibility.Collapsed;
-                    if (!string.IsNullOrEmpty(instance.Icon))
+                    if (instance.Icon!=null)
                         instance.IconBlock.Visibility = Visibility.Visible;
                 }
             }
@@ -106,25 +110,6 @@ namespace Richasy.Controls.UWP.Interaction
                 var instance = d as IconButton;
                 instance.IconBlock.Margin = new Thickness(0, 0, width, 0);
                 instance.LoadingRing.Margin= new Thickness(0, 0, width, 0);
-            }
-        }
-
-        public Style IconStyle
-        {
-            get { return (Style)GetValue(IconStyleProperty); }
-            set { SetValue(IconStyleProperty, value); }
-        }
-
-        // Using a DependencyProperty as the backing store for IconTextStyle.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty IconStyleProperty =
-            DependencyProperty.Register("IconStyle", typeof(Style), typeof(IconButton), new PropertyMetadata(null,new PropertyChangedCallback(IconStyle_Changed)));
-
-        private static void IconStyle_Changed(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            if (e.NewValue != null && e.NewValue is Style style)
-            {
-                var instance = d as IconButton;
-                instance.IconBlock.Style = style;
             }
         }
 

@@ -243,25 +243,25 @@ namespace Richasy.Controls.UWP.Interaction
         public static readonly DependencyProperty ButtonIconFontFamilyProperty =
             DependencyProperty.Register("ButtonIconFontFamily", typeof(FontFamily), typeof(NumberBox), new PropertyMetadata(new FontFamily("Segoe MDL2 Assets")));
 
-        public string UpButtonIcon
+        public IconElement UpButtonIcon
         {
-            get { return (string)GetValue(UpButtonIconProperty); }
+            get { return (IconElement)GetValue(UpButtonIconProperty); }
             set { SetValue(UpButtonIconProperty, value); }
         }
 
         // Using a DependencyProperty as the backing store for UpButtonIcon.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty UpButtonIconProperty =
-            DependencyProperty.Register("UpButtonIcon", typeof(string), typeof(NumberBox), new PropertyMetadata(""));
+            DependencyProperty.Register("UpButtonIcon", typeof(IconElement), typeof(NumberBox), new PropertyMetadata(""));
 
-        public string DownButtonIcon
+        public IconElement DownButtonIcon
         {
-            get { return (string)GetValue(DownButtonIconProperty); }
+            get { return (IconElement)GetValue(DownButtonIconProperty); }
             set { SetValue(DownButtonIconProperty, value); }
         }
 
         // Using a DependencyProperty as the backing store for DownButtonIcon.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty DownButtonIconProperty =
-            DependencyProperty.Register("DownButtonIcon", typeof(string), typeof(NumberBox), new PropertyMetadata(""));
+            DependencyProperty.Register("DownButtonIcon", typeof(IconElement), typeof(NumberBox), new PropertyMetadata(""));
 
 
 
