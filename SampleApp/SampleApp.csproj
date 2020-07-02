@@ -200,6 +200,12 @@
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.10</Version>
     </PackageReference>
+    <PackageReference Include="Microsoft.Toolkit.Uwp.UI">
+      <Version>6.1.0</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Toolkit.Uwp.UI.Controls">
+      <Version>6.1.0</Version>
+    </PackageReference>
     <PackageReference Include="Richasy.Font.UWP">
       <Version>1.0.5</Version>
     </PackageReference>
@@ -208,13 +214,13 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Richasy-Controls-UWP\Richasy-Controls-UWP.csproj">
-      <Project>{e89af451-249b-44b8-864f-c18873f60218}</Project>
-      <Name>Richasy-Controls-UWP</Name>
-    </ProjectReference>
+    <Folder Include="Controls\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controls\" />
+    <ProjectReference Include="..\Richasy-Controls-UWP\Richasy-Controls-UWP.csproj">
+      <Project>{6df7df36-c97c-4d0a-bf60-511905ce072b}</Project>
+      <Name>Richasy-Controls-UWP</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

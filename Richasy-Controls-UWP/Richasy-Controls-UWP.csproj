@@ -4,12 +4,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E89AF451-249B-44B8-864F-C18873F60218}</ProjectGuid>
+    <ProjectGuid>{6DF7DF36-C97C-4D0A-BF60-511905CE072B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Richasy.Controls.UWP</RootNamespace>
+    <RootNamespace>Richasy_Controls_UWP</RootNamespace>
     <AssemblyName>Richasy-Controls-UWP</AssemblyName>
-    <DefaultLanguage>en-US</DefaultLanguage>
+    <DefaultLanguage>zh-CN</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.19041.0</TargetPlatformVersion>
     <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
@@ -140,11 +140,11 @@
     <Compile Include="Layout\MenuListView\MenuListView.xaml.cs">
       <DependentUpon>MenuListView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Models\Event\AfterBackEventArgs.cs" />
-    <Compile Include="Models\Event\BeforeBackEventArgs.cs" />
+    <Compile Include="Layout\ThreeStageView\ThreeStageView.cs" />
     <Compile Include="Layout\ThreeStageView\ThreeStageView.Navigate.cs" />
     <Compile Include="Layout\ThreeStageView\ThreeStageView.Properties.cs" />
-    <Compile Include="Layout\ThreeStageView\ThreeStageView.cs" />
+    <Compile Include="Models\Event\AfterBackEventArgs.cs" />
+    <Compile Include="Models\Event\BeforeBackEventArgs.cs" />
     <Compile Include="Models\Event\PaneStateChangedEventArgs.cs" />
     <Compile Include="Models\Event\StageChangedEventArgs.cs" />
     <Compile Include="Models\Interface\IAppBarComboBoxItem.cs" />
@@ -189,55 +189,57 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="Interaction\IconButton\IconButton.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Interaction\Interaction.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Interaction\NumberBox\NumberBox.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Layout\MenuListView\MenuListView.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Layout\ThreeStageView\ThreeStageView.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Popups\CenterPopup\CenterPopup.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Popups\TipPopup\TipPopup.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Themes\Generic.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Widgets\AppBarComboBoxButton\AppBarComboBoxButton.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Widgets\Bubble\Bubble.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Widgets\CenterPopupHeader\CenterPopupHeader.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Widgets\IconTextBlock\IconTextBlock.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Richasy-Controls-UWP.nuspec" />
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
