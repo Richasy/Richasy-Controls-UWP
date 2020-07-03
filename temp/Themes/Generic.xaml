@@ -1,9 +1,0 @@
-<ResourceDictionary
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="ms-appx:///Richasy-Controls-UWP/Interaction/Interaction.xaml"/>
-        <ResourceDictionary Source="ms-appx:///Richasy-Controls-UWP/Widgets/Bubble/Bubble.xaml"/>
-        <ResourceDictionary Source="ms-appx:///Richasy-Controls-UWP/Layout/ThreeStageView/ThreeStageView.xaml"/>
-    </ResourceDictionary.MergedDictionaries>
-</ResourceDictionary>

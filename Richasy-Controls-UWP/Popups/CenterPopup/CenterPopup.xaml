@@ -27,7 +27,8 @@
                                   >
             
             <Grid x:Name="DisplayContainer" Background="{x:Bind PresenterBackground,Mode=OneWay}"
-                  Height="{x:Bind PopupMaxHeight,Mode=OneWay}" Width="{x:Bind PopupMaxWidth,Mode=OneWay}">
+                  Height="{x:Bind PopupMaxHeight,Mode=OneWay}" Width="{x:Bind PopupMaxWidth,Mode=OneWay}"
+                  CornerRadius="{x:Bind CornerRadius,Mode=OneWay}">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="1*" />

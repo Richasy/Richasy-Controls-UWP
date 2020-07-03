@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>Richasy.Controls.UWP</id>
-    <version>1.0.4</version>
+    <version>1.0.5</version>
     <authors>Richasy</authors>
     <owners>Richasy</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -10,7 +10,7 @@
     <projectUrl>https://github.com/Richasy/Richasy-Controls-UWP</projectUrl>
     <iconUrl>https://i.loli.net/2020/06/28/7M368G1hUoYXJpC.png</iconUrl>
     <description>Richasy自用的控件集，多是对原有控件的包装</description>
-    <releaseNotes>基础构建</releaseNotes>
+    <releaseNotes>移除AdaptiveGridView</releaseNotes>
     <copyright>Copyright 2020</copyright>
     <tags>Richasy uwp controls</tags>
     <dependencies>
