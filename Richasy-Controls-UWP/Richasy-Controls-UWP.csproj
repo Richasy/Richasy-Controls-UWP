@@ -7,7 +7,7 @@
     <ProjectGuid>{6DF7DF36-C97C-4D0A-BF60-511905CE072B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Richasy_Controls_UWP</RootNamespace>
+    <RootNamespace>Richasy.Controls.UWP</RootNamespace>
     <AssemblyName>Richasy-Controls-UWP</AssemblyName>
     <DefaultLanguage>zh-CN</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
@@ -167,6 +167,9 @@
     <Compile Include="Widgets\IconTextBlock\IconTextBlock.xaml.cs">
       <DependentUpon>IconTextBlock.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Widgets\VersionBlock\VersionBlock.xaml.cs">
+      <DependentUpon>VersionBlock.xaml</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Richasy_Controls_UWP.rd.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -180,7 +183,7 @@
       <Version>6.1.0</Version>
     </PackageReference>
     <PackageReference Include="Richasy.Helper.UWP">
-      <Version>1.0.4</Version>
+      <Version>1.0.5</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
@@ -231,6 +234,10 @@
     <Page Include="Widgets\IconTextBlock\IconTextBlock.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Widgets\VersionBlock\VersionBlock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>

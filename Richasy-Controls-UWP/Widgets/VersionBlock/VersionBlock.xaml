@@ -1,0 +1,46 @@
+﻿<UserControl
+    x:Class="Richasy.Controls.UWP.Widgets.VersionBlock"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Richasy.Controls.UWP.Widgets.VersionBlock"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls" xmlns:interaction="using:Richasy.Controls.UWP.Interaction"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+    <UserControl.Resources>
+        <Style TargetType="TextBlock" x:Key="TitleStyle">
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="FontWeight" Value="Bold" />
+        </Style>
+        <Style TargetType="TextBlock" x:Key="SmallStyle">
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="TextTrimming" Value="CharacterEllipsis" />
+        </Style>
+    </UserControl.Resources>
+    <Grid Padding="40,20,0,20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <controls:ImageEx x:Name="AppIcon" Source="{x:Bind LogoUri,Mode=OneWay}" DecodePixelWidth="50" Width="50" Height="50" Margin="0,0,40,0" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="0,20,40,0">
+            <TextBlock Text="{x:Bind Title,Mode=OneWay}" Style="{StaticResource TitleStyle}" x:Name="TitleBlock"/>
+            <TextBlock HorizontalAlignment="Center" x:Name="VersionTextBlock" VerticalAlignment="Center" Margin="10,0,0,0" Style="{StaticResource SmallStyle}"/>
+        </StackPanel>
+        <ScrollViewer HorizontalAlignment="Stretch"
+                          Margin="0,20,10,0"
+                          Padding="0,0,30,0"
+                          Grid.Row="2" Style="{x:Bind ScrollViewerStyle,Mode=OneWay}">
+            <controls:MarkdownTextBlock x:Name="DescriptionBlock"
+                                            TextWrapping="Wrap" HorizontalAlignment="Stretch"
+                                            FontSize="13" Style="{x:Bind DescriptionTextStyle,Mode=OneWay}"
+                                            Grid.Row="1" Text="{x:Bind Description}"
+                                            />
+        </ScrollViewer>
+        <interaction:ActionButton Style="{x:Bind ActionButtonStyle,Mode=OneWay}" Margin="0,20,40,0" Grid.Row="3" Name="CloseButton" Click="CloseButton_Click" HorizontalAlignment="Center" Diameter="40"
+                                  Icon="{x:Bind ActionIcon,Mode=OneWay}"/>
+    </Grid>
+</UserControl>

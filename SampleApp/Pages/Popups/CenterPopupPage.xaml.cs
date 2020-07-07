@@ -37,5 +37,21 @@ namespace SampleApp.Pages.Popups
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
         }
+
+        private void UpdateButton_Click(object sender, RoutedEventArgs e)
+        {
+            var main = UpdateTemplate.LoadContent() as VersionBlock;
+            var popup = new CenterPopup(App._instance);
+            popup.Main = main;
+            popup.PresenterBackground = App._instance.App.GetThemeBrushFromResource(ColorType.CardBackground);
+            popup.PopupBackground = App._instance.App.GetThemeBrushFromResource(ColorType.MaskAcrylicBackground);
+            popup.PopupMaxWidth = 400;
+            popup.CornerRadius = new CornerRadius(4);
+            main.ActionButtonClick += (_s, _e) =>
+            {
+                popup.Hide();
+            };
+            popup.Show();
+        }
     }
 }

@@ -193,10 +193,13 @@ namespace Richasy.Controls.UWP.Popups
             popup.Header = header;
             popup.Main = main;
             popup.WindowSizeChangedHandle = SizeChangedHandle;
-            popup.Header.CloseButtonClick += (_s, _e) =>
+            if (header != null)
             {
-                popup.Hide();
-            };
+                popup.Header.CloseButtonClick += (_s, _e) =>
+                {
+                    popup.Hide();
+                };
+            }
             return popup;
         }
         /// <summary>

@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>Richasy.Controls.UWP</id>
-    <version>1.0.5</version>
+    <version>1.0.6</version>
     <authors>Richasy</authors>
     <owners>Richasy</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -10,7 +10,7 @@
     <projectUrl>https://github.com/Richasy/Richasy-Controls-UWP</projectUrl>
     <iconUrl>https://i.loli.net/2020/06/28/7M368G1hUoYXJpC.png</iconUrl>
     <description>Richasy自用的控件集，多是对原有控件的包装</description>
-    <releaseNotes>移除AdaptiveGridView</releaseNotes>
+    <releaseNotes>添加VersionBlock作为更新信息控件</releaseNotes>
     <copyright>Copyright 2020</copyright>
     <tags>Richasy uwp controls</tags>
     <dependencies>
@@ -23,8 +23,8 @@
   </metadata>
   <files>
     <file src="bin\Release\Richasy-Controls-UWP.dll" target="lib\uap10.0"/>
-    <file src="bin\Release\Richasy-Controls-UWP.pdb" target="lib\uap10.0"/>
     <file src="bin\Release\Richasy-Controls-UWP.pri" target="lib\uap10.0"/>
+    <file src="bin\Release\Microsoft.Toolkit.Uwp.UI.Controls\Microsoft.Toolkit.Uwp.UI.Controls.xr.xml" target="lib\uap10.0\Microsoft.Toolkit.Uwp.UI.Controls"/>
     <file src="bin\Release\Richasy-Controls-UWP\Richasy-Controls-UWP.xr.xml" target="lib\uap10.0\Richasy-Controls-UWP"/>
     <file src="bin\Release\Richasy-Controls-UWP\Themes\Generic.xaml" target="lib\uap10.0\Richasy-Controls-UWP\Themes"/>
     <file src="bin\Release\Richasy-Controls-UWP\Interaction\Interaction.xaml" target="lib\uap10.0\Richasy-Controls-UWP\Interaction"/>
@@ -41,6 +41,6 @@
     <file src="bin\Release\Richasy-Controls-UWP\Widgets\Bubble\Bubble.xaml" target="lib\uap10.0\Richasy-Controls-UWP\Widgets\Bubble"/>
     <file src="bin\Release\Richasy-Controls-UWP\Widgets\CenterPopupHeader\CenterPopupHeader.xaml" target="lib\uap10.0\Richasy-Controls-UWP\Widgets\CenterPopupHeader"/>
     <file src="bin\Release\Richasy-Controls-UWP\Widgets\IconTextBlock\IconTextBlock.xaml" target="lib\uap10.0\Richasy-Controls-UWP\Widgets\IconTextBlock"/>
-    
+    <file src="bin\Release\Richasy-Controls-UWP\Widgets\VersionBlock\VersionBlock.xaml" target="lib\uap10.0\Richasy-Controls-UWP\Widgets\VersionBlock"/>
   </files>
 </package>

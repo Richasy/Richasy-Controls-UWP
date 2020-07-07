@@ -5,7 +5,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:SampleApp.Pages.Popups"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:popups="using:Richasy.Controls.UWP.Popups" xmlns:widgets="using:Richasy.Controls.UWP.Widgets"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:popups="using:Richasy.Controls.UWP.Popups" xmlns:widgets="using:Richasy.Controls.UWP.Widgets" xmlns:uwp="using:Richasy.Font.UWP"
+    xmlns:interaction="using:Richasy.Controls.UWP.Interaction"
     mc:Ignorable="d">
     <Page.Resources>
         <DataTemplate x:Name="HeaderTemplate">
@@ -30,9 +31,34 @@
                 </widgets:CenterPopupHeader.AdditionElement>
             </widgets:CenterPopupHeader>
         </DataTemplate>
+        <Style TargetType="interaction:ActionButton" x:Key="PrimaryActionButtonStyle">
+            <Setter Property="Background" Value="{ThemeResource PrimaryColor}" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="PointerOverBackground" Value="{ThemeResource PrimaryColorOver}" />
+            <Setter Property="PointerOverForeground" Value="White" />
+            <Setter Property="PressBackground" Value="{ThemeResource PrimaryColorOver}" />
+            <Setter Property="PressForeground" Value="White" />
+        </Style>
+        <DataTemplate x:Name="UpdateTemplate">
+            <widgets:VersionBlock Title="更新信息"
+                                  Description="这是一段**更新**的内容"
+                                  LogoUri="ms-appx:///Assets/StoreLogo.png"
+                                  ActionButtonStyle="{StaticResource PrimaryActionButtonStyle}"
+                                  >
+                <widgets:VersionBlock.ActionIcon>
+                    <uwp:FeatherIcon Symbol="Check"/>
+                </widgets:VersionBlock.ActionIcon>
+            </widgets:VersionBlock>
+        </DataTemplate>
     </Page.Resources>
     <Grid>
-        <Button HorizontalAlignment="Center" VerticalAlignment="Center" Content="弹出内容"
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button Content="弹出内容"
                 Click="Button_Click"/>
+            <Button Margin="15,0,0,0" Content="弹出更新信息" x:Name="UpdateButton"
+                Click="UpdateButton_Click"/>
+        </StackPanel>
+        
     </Grid>
 </ui:RichasyPage>
