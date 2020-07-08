@@ -19,13 +19,13 @@
                     </Style>
                 </widgets:CenterPopupHeader.TitleTextStyle>
                 <widgets:CenterPopupHeader.CloseButtonStyle>
-                    <Style TargetType="Button">
-                        <Setter Property="Width" Value="40" />
-                        <Setter Property="Height" Value="40" />
-                        <Setter Property="CornerRadius" Value="20" />
-                        <Setter Property="FontFamily" Value="{StaticResource SymbolThemeFontFamily}" />
+                    <Style TargetType="interaction:ActionButton">
+                        <Setter Property="Diameter" Value="40" />
                     </Style>
                 </widgets:CenterPopupHeader.CloseButtonStyle>
+                <widgets:CenterPopupHeader.CloseIcon>
+                    <uwp:FeatherIcon Symbol="X"/>
+                </widgets:CenterPopupHeader.CloseIcon>
                 <widgets:CenterPopupHeader.AdditionElement>
                     <Button Content="附加按钮" Margin="0,0,15,0"/>
                 </widgets:CenterPopupHeader.AdditionElement>

@@ -18,11 +18,19 @@ using Windows.UI.Xaml.Navigation;
 
 namespace Richasy.Controls.UWP.Widgets
 {
-    public sealed partial class CenterPopupHeader : UserControl,ICenterPopupHeader
+    public sealed partial class CenterPopupHeader : UserControl, ICenterPopupHeader
     {
         public CenterPopupHeader()
         {
             this.InitializeComponent();
+        }
+
+        public CenterPopupHeader(string title, IconElement icon, Style closeButtonStyle = null, Style titleStyle = null) : this()
+        {
+            Title = title;
+            CloseButtonStyle = closeButtonStyle;
+            CloseIcon = icon;
+            TitleTextStyle = titleStyle;
         }
 
         public event EventHandler CloseButtonClick;
@@ -47,6 +55,9 @@ namespace Richasy.Controls.UWP.Widgets
         public static readonly DependencyProperty TitleTextStyleProperty =
             DependencyProperty.Register("TitleTextStyle", typeof(Style), typeof(CenterPopupHeader), new PropertyMetadata(null));
 
+        /// <summary>
+        /// ActionButton Style
+        /// </summary>
         public Style CloseButtonStyle
         {
             get { return (Style)GetValue(CloseButtonStyleProperty); }
@@ -55,35 +66,18 @@ namespace Richasy.Controls.UWP.Widgets
 
         // Using a DependencyProperty as the backing store for CloseButtonStyle.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty CloseButtonStyleProperty =
-            DependencyProperty.Register("CloseButtonStyle", typeof(Style), typeof(CenterPopupHeader), new PropertyMetadata(null,new PropertyChangedCallback(CloseButtonStyle_Changed)));
+            DependencyProperty.Register("CloseButtonStyle", typeof(Style), typeof(CenterPopupHeader), new PropertyMetadata(null));
 
-        private static void CloseButtonStyle_Changed(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            if (e.NewValue != null && e.NewValue is Style style)
-            {
-                var instance = d as CenterPopupHeader;
-                instance.CloseButton.Style = style;
-            }
-        }
 
-        public string CloseIcon
+        public IconElement CloseIcon
         {
-            get { return (string)GetValue(CloseIconProperty); }
+            get { return (IconElement)GetValue(CloseIconProperty); }
             set { SetValue(CloseIconProperty, value); }
         }
 
         // Using a DependencyProperty as the backing store for CloseIcon.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty CloseIconProperty =
-            DependencyProperty.Register("CloseIcon", typeof(string), typeof(CenterPopupHeader), new PropertyMetadata("",new PropertyChangedCallback(CloseIcon_Changed)));
-
-        private static void CloseIcon_Changed(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            if(e.NewValue!=null && e.NewValue is string icon)
-            {
-                var instance = d as CenterPopupHeader;
-                instance.CloseButton.Content = icon;
-            }
-        }
+            DependencyProperty.Register("CloseIcon", typeof(IconElement), typeof(CenterPopupHeader), new PropertyMetadata(null));
 
         public UIElement AdditionElement
         {
@@ -93,7 +87,7 @@ namespace Richasy.Controls.UWP.Widgets
 
         // Using a DependencyProperty as the backing store for AdditionElement.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty AdditionElementProperty =
-            DependencyProperty.Register("AdditionElement", typeof(UIElement), typeof(CenterPopupHeader), new PropertyMetadata(null,new PropertyChangedCallback(AdditionElement_Changed)));
+            DependencyProperty.Register("AdditionElement", typeof(UIElement), typeof(CenterPopupHeader), new PropertyMetadata(null, new PropertyChangedCallback(AdditionElement_Changed)));
 
         private static void AdditionElement_Changed(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
