@@ -46,14 +46,14 @@
 
                 <RepeatButton x:Name="PopupUpSpinButton"
                                     Style="{StaticResource NumberBoxPopupSpinButtonStyle}"
-                                    Grid.Row="0" FontFamily="{x:Bind ButtonIconFontFamily,Mode=OneWay}"
+                                    Grid.Row="0"
                                     Content="{x:Bind UpButtonIcon,Mode=OneWay}"
                               Click="PopupUpSpinButton_Click"/>
 
                 <RepeatButton x:Name="PopupDownSpinButton"
                                     Style="{StaticResource NumberBoxPopupSpinButtonStyle}"
-                                    Grid.Row="1" FontFamily="{x:Bind ButtonIconFontFamily,Mode=OneWay}"
-                                    Content="{x:Bind UpButtonIcon,Mode=OneWay}"
+                                    Grid.Row="1"
+                                    Content="{x:Bind DownButtonIcon,Mode=OneWay}"
                               Click="PopupDownSpinButton_Click"/>
             </Grid>
         </Popup>

@@ -233,15 +233,6 @@ namespace Richasy.Controls.UWP.Interaction
         public static readonly DependencyProperty TextBoxStyleProperty =
             DependencyProperty.Register("TextBoxStyle", typeof(Style), typeof(NumberBox), new PropertyMetadata(null));
 
-        public FontFamily ButtonIconFontFamily
-        {
-            get { return (FontFamily)GetValue(ButtonIconFontFamilyProperty); }
-            set { SetValue(ButtonIconFontFamilyProperty, value); }
-        }
-
-        // Using a DependencyProperty as the backing store for ButtonIconFontFamily.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty ButtonIconFontFamilyProperty =
-            DependencyProperty.Register("ButtonIconFontFamily", typeof(FontFamily), typeof(NumberBox), new PropertyMetadata(new FontFamily("Segoe MDL2 Assets")));
 
         public IconElement UpButtonIcon
         {
@@ -251,7 +242,7 @@ namespace Richasy.Controls.UWP.Interaction
 
         // Using a DependencyProperty as the backing store for UpButtonIcon.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty UpButtonIconProperty =
-            DependencyProperty.Register("UpButtonIcon", typeof(IconElement), typeof(NumberBox), new PropertyMetadata(""));
+            DependencyProperty.Register("UpButtonIcon", typeof(IconElement), typeof(NumberBox), new PropertyMetadata(new SymbolIcon(Symbol.Up)));
 
         public IconElement DownButtonIcon
         {
@@ -261,7 +252,7 @@ namespace Richasy.Controls.UWP.Interaction
 
         // Using a DependencyProperty as the backing store for DownButtonIcon.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty DownButtonIconProperty =
-            DependencyProperty.Register("DownButtonIcon", typeof(IconElement), typeof(NumberBox), new PropertyMetadata(""));
+            DependencyProperty.Register("DownButtonIcon", typeof(IconElement), typeof(NumberBox), new PropertyMetadata(new SymbolIcon(Symbol.Download)));
 
 
 
