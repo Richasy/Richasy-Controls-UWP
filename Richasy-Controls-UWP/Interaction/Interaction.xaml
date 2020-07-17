@@ -327,7 +327,7 @@
                         </ContentPresenter>
                         <ProgressRing x:Name="LoadingRing" Foreground="{TemplateBinding Foreground}"
                                       Width="{TemplateBinding FontSize}" HorizontalAlignment="Center"
-                                       VerticalAlignment="Center"/>
+                                       VerticalAlignment="Center" MinWidth="{TemplateBinding FontSize}"/>
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup x:Name="CommonStates">
                                 <VisualState x:Name="Normal">
