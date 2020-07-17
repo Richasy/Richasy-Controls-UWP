@@ -26,6 +26,10 @@ namespace SampleApp.Models.UI
                     Name = "弹出提示";
                     Icon = FeatherSymbol.Tag;
                     break;
+                case MenuItemType.WaitingPopup:
+                    Name = "全屏等待";
+                    Icon = FeatherSymbol.PieChart;
+                    break;
                 case MenuItemType.CenterPopup:
                     Name = "弹出表单";
                     Icon = FeatherSymbol.Layout;
@@ -52,6 +56,7 @@ namespace SampleApp.Models.UI
             return new List<MenuItem>
             {
                 new MenuItem(MenuItemType.TipPopup,true),
+                new MenuItem(MenuItemType.WaitingPopup),
                 new MenuItem(MenuItemType.CenterPopup),
                 new MenuItem(MenuItemType.ExtendButton),
                 new MenuItem(MenuItemType.ExtendInput)

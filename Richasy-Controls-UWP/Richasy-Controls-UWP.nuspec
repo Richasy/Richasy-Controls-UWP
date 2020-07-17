@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>Richasy.Controls.UWP</id>
-    <version>1.0.9</version>
+    <version>1.1.0</version>
     <authors>Richasy</authors>
     <owners>Richasy</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -10,14 +10,14 @@
     <projectUrl>https://github.com/Richasy/Richasy-Controls-UWP</projectUrl>
     <iconUrl>https://i.loli.net/2020/06/28/7M368G1hUoYXJpC.png</iconUrl>
     <description>Richasy自用的控件集，多是对原有控件的包装</description>
-    <releaseNotes>修改NumberBox的文本框为ExtraTextBox</releaseNotes>
+    <releaseNotes>添加WaitingPopup</releaseNotes>
     <copyright>Copyright 2020</copyright>
     <tags>Richasy uwp controls</tags>
     <dependencies>
       <group targetFramework="uap10.0">
         <dependency id="Microsoft.Toolkit.Uwp.UI.Animations" version="6.1.0" />
         <dependency id="Microsoft.Toolkit.Uwp.UI.Controls" version="6.1.0" />
-        <dependency id="Richasy.Helper.UWP" version="1.0.4" />
+        <dependency id="Richasy.Helper.UWP" version="1.0.7" />
       </group>
     </dependencies>
   </metadata>
@@ -36,6 +36,7 @@
     
     <file src="bin\Release\Richasy-Controls-UWP\Popups\CenterPopup\CenterPopup.xaml" target="lib\uap10.0\Richasy-Controls-UWP\Popups\CenterPopup"/>
     <file src="bin\Release\Richasy-Controls-UWP\Popups\TipPopup\TipPopup.xaml" target="lib\uap10.0\Richasy-Controls-UWP\Popups\TipPopup"/>
+    <file src="bin\Release\Richasy-Controls-UWP\Popups\WaitingPopup\WaitingPopup.xaml" target="lib\uap10.0\Richasy-Controls-UWP\Popups\WaitingPopup"/>
     
     <file src="bin\Release\Richasy-Controls-UWP\Widgets\AppBarComboBoxButton\AppBarComboBoxButton.xaml" target="lib\uap10.0\Richasy-Controls-UWP\Widgets\AppBarComboBoxButton"/>
     <file src="bin\Release\Richasy-Controls-UWP\Widgets\Bubble\Bubble.xaml" target="lib\uap10.0\Richasy-Controls-UWP\Widgets\Bubble"/>

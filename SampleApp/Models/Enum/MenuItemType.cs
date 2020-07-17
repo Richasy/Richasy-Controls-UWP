@@ -10,6 +10,7 @@ namespace SampleApp.Models.Enum
     {
         TipPopup,
         CenterPopup,
+        WaitingPopup,
         ExtendButton,
         ExtendInput,
         Other

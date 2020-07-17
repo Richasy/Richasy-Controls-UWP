@@ -65,6 +65,9 @@ namespace SampleApp
                 case Models.Enum.MenuItemType.TipPopup:
                     pageType = typeof(Pages.Popups.TipPopupPage);
                     break;
+                case Models.Enum.MenuItemType.WaitingPopup:
+                    pageType = typeof(Pages.Popups.WaitingPopupPage);
+                    break;
                 case Models.Enum.MenuItemType.CenterPopup:
                     pageType = typeof(Pages.Popups.CenterPopupPage);
                     break;
