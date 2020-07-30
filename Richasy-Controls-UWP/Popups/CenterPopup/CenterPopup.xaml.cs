@@ -9,6 +9,7 @@ using Windows.Devices.HumanInterfaceDevice;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -162,11 +163,19 @@ namespace Richasy.Controls.UWP.Popups
                 Height = size.Height;
                 WindowSizeChangedHandle?.Invoke(size);
             });
+            SystemNavigationManager.GetForCurrentView().BackRequested += Back_Request;
             WindowSizeChangedHandle?.Invoke(new Size(Window.Current.Bounds.Width, Window.Current.Bounds.Height));
             PopupContainer.Visibility = Visibility.Visible;
             DisplayContainer.Visibility = Visibility.Visible;
             _popup.IsOpen = true;
         }
+
+        private void Back_Request(object sender, BackRequestedEventArgs e)
+        {
+            e.Handled = true;
+            Hide();
+        }
+
         /// <summary>
         /// 隐藏弹出层
         /// </summary>
@@ -174,6 +183,7 @@ namespace Richasy.Controls.UWP.Popups
         {
             PopupContainer.Visibility = Visibility.Collapsed;
             DisplayContainer.Visibility = Visibility.Collapsed;
+            SystemNavigationManager.GetForCurrentView().BackRequested -= Back_Request;
             _popup.IsOpen = false;
             Instance.RemoveWindowSizeChangeAction(_guid);
         }
