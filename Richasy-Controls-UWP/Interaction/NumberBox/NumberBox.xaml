@@ -36,7 +36,7 @@
                HorizontalAlignment="Left"
                Visibility="{x:Bind PopupVisibility,Mode=OneWay}"
                >
-            <Grid x:Name="PopupContentRoot">
+            <Grid x:Name="PopupContentRoot" Background="{x:Bind PopupBackground,Mode=OneWay}">
 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>

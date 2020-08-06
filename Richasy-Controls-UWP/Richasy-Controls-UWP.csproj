@@ -133,6 +133,8 @@
     <Compile Include="Interaction\NumberBox\NumberBox.xaml.cs">
       <DependentUpon>NumberBox.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Layout\CustomGridView.cs" />
+    <Compile Include="Layout\CustomListView.cs" />
     <Compile Include="Layout\MenuListView\MenuListView.xaml.cs">
       <DependentUpon>MenuListView.xaml</DependentUpon>
     </Compile>

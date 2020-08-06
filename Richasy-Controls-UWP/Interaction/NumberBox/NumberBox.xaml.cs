@@ -254,7 +254,15 @@ namespace Richasy.Controls.UWP.Interaction
         public static readonly DependencyProperty DownButtonIconProperty =
             DependencyProperty.Register("DownButtonIcon", typeof(IconElement), typeof(NumberBox), new PropertyMetadata(new SymbolIcon(Symbol.Download)));
 
+        public Brush PopupBackground
+        {
+            get { return (Brush)GetValue(PopupBackgroundProperty); }
+            set { SetValue(PopupBackgroundProperty, value); }
+        }
 
+        // Using a DependencyProperty as the backing store for PopupBackground.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty PopupBackgroundProperty =
+            DependencyProperty.Register("PopupBackground", typeof(Brush), typeof(NumberBox), new PropertyMetadata(null));
 
 
     }
