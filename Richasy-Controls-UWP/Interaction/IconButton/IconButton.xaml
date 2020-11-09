@@ -15,7 +15,7 @@
             <Setter Property="LineHeight" Value="0" />
         </Style>
     </local:ExtraButton.Resources>
-    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+    <Grid HorizontalAlignment="{x:Bind HorizontalContentAlignment,Mode=OneWay}" VerticalAlignment="{x:Bind VerticalContentAlignment,Mode=OneWay}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="1*" />
